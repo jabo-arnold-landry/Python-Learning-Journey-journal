@@ -1,9 +1,26 @@
-# time and date
-import datetime
+#multithreading: is used to perform task concurrently or at the same time(multitasking), best suited for I/O bound tasks like reading file fetching data from an APIs
 
-date = datetime.date(2025, 2, 3) # gets the date bassed on what you inputed
-today = datetime.date.today() # gets todays dates
-time = datetime.time(12, 30,0) # gets the hours
-now = datetime.datetime.now() # get the current time(i.e: time and dates)
+import threading # we first import threading modules from python builtin modules
 
-print(time)
+# and to use it we call the thread constructor on it and pass in the function which is will is taking too long to complete and then we call it using the start method to start executing
+import time
+def bathing(name):
+    time.sleep(6)
+    print(f"me {name} I am bathing")
+def brushing():
+    time.sleep(2)
+    print("I am brushing")
+def breakfast():
+    time.sleep(4)
+    print("I am having breakfast")
+
+preparation1 = threading.Thread(target = bathing)
+preparation1.start()
+preparation2 = threading.Thread(target = brushing)
+preparation2.start()
+preparation3 = threading.Thread(target = breakfast)
+preparation3.start()
+preparation1.join()
+preparation2.join()
+preparation3.join()
+print("I am good to go now!")
