@@ -1,5 +1,4 @@
 import random
-
 # Generate a larger dataset with 100 random integers between 1 and 999
 large_dataset = [random.randint(1, 999) for _ in range(100)]
 
@@ -34,7 +33,3 @@ def merge_sorted(coll1, coll2):
 
 print(sorting(large_dataset))
 
-
-
-# print("Original dataset:")
-# print(large_dataset)
